@@ -1,5 +1,5 @@
 package com.sample;
-
+ 
 import org.drools.KnowledgeBase;
 import org.drools.KnowledgeBaseFactory;
 import org.drools.builder.DecisionTableConfiguration;

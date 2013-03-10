@@ -13,7 +13,7 @@ rule "1ere Regle"
         Log : "OK On est dans le RHS!"
         View details of customer
         Set name of customer to "Jonathan"
-        Set age of customer to 27
+        Set age of customer to 28
         View details of customer
 end
 

@@ -1,5 +1,5 @@
 package com.sample;
-
+ 
 import org.drools.KnowledgeBase;
 import org.drools.KnowledgeBaseFactory;
 import org.drools.builder.KnowledgeBuilder;
@@ -20,7 +20,7 @@ public class ProcessTest {
             KnowledgeBuilder kbuilder = KnowledgeBuilderFactory.newKnowledgeBuilder();
             kbuilder.add(ResourceFactory.newClassPathResource("EmployeeRule.drl"), ResourceType.DRL);
             kbuilder.add(ResourceFactory.newClassPathResource("ruleflow.rf"), ResourceType.DRF);
-            
+             
             KnowledgeBuilderErrors errors = kbuilder.getErrors();
             if (errors.size() > 0) {
                 for (KnowledgeBuilderError error: errors) {

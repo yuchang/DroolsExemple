@@ -1,5 +1,5 @@
 package com.sample;
-
+ 
 public class Employee {
 
 	public static final double BONUS= 1000;

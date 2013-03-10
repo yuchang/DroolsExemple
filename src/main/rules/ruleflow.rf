@@ -8,7 +8,7 @@
   </header>
 
   <nodes>
-    <start id="1" name="Start" x="211" y="28" width="48" height="48" />
+    <start id="1" name="Start" x="213" y="28" width="48" height="48" />
     <end id="3" name="End" x="202" y="424" width="48" height="48" />
     <split id="4" name="Gateway" x="211" y="109" width="49" height="49" type="3" >
       <constraints>
