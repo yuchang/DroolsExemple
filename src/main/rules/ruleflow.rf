@@ -8,16 +8,36 @@
   </header>
 
   <nodes>
-    <start id="1" name="Start" x="16" y="16" width="48" height="48" />
-    <actionNode id="2" name="Hello" x="96" y="16" width="80" height="48" >
-        <action type="expression" dialect="mvel" >System.out.println("Hello World!!!");</action>
-    </actionNode>
-    <end id="3" name="End" x="208" y="16" width="48" height="48" />
+    <start id="1" name="Start" x="211" y="28" width="48" height="48" />
+    <end id="3" name="End" x="202" y="424" width="48" height="48" />
+    <split id="4" name="Gateway" x="211" y="109" width="49" height="49" type="3" >
+      <constraints>
+        <constraint toNodeId="8" toType="DROOLS_DEFAULT" name="toAP" priority="1" type="rule" dialect="mvel" >eval(true)</constraint>
+        <constraint toNodeId="7" toType="DROOLS_DEFAULT" name="toBonus" priority="1" type="rule" dialect="mvel" >eval(true)</constraint>
+        <constraint toNodeId="6" toType="DROOLS_DEFAULT" name="toDuty" priority="1" type="rule" dialect="mvel" >eval(true)</constraint>
+        <constraint toNodeId="5" toType="DROOLS_DEFAULT" name="toBasic" priority="1" type="rule" dialect="mvel" >eval(true)</constraint>
+      </constraints>
+    </split>
+    <ruleSet id="5" name="basic_salary" x="13" y="210" width="80" height="48" ruleFlowGroup="basic_salary" />
+    <ruleSet id="6" name="duty_salary" x="134" y="209" width="80" height="48" ruleFlowGroup="duty_salary" />
+    <ruleSet id="7" name="bonus_salary" x="255" y="215" width="80" height="48" ruleFlowGroup="bonus_salary" />
+    <ruleSet id="8" name="award_punish" x="390" y="214" width="80" height="48" ruleFlowGroup="award_punish" />
+    <ruleSet id="9" name="sum_salary" x="184" y="354" width="80" height="48" ruleFlowGroup="sum_salary" />
+    <join id="10" name="Gateway" x="195" y="290" width="49" height="49" type="1" />
   </nodes>
 
   <connections>
-    <connection from="1" to="2" />
-    <connection from="2" to="3" />
+    <connection from="9" to="3" />
+    <connection from="1" to="4" />
+    <connection from="4" to="5" />
+    <connection from="4" to="6" />
+    <connection from="4" to="7" />
+    <connection from="4" to="8" />
+    <connection from="10" to="9" />
+    <connection from="5" to="10" />
+    <connection from="6" to="10" />
+    <connection from="7" to="10" />
+    <connection from="8" to="10" />
   </connections>
 
 </process>

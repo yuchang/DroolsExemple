@@ -1,0 +1,128 @@
+//created on: 8 mars 2013
+package com.sample
+
+import com.sample.Employee;
+
+
+#EduInfoRule
+
+rule "Bachelor"
+	ruleflow-group "basic_salary"
+	when
+		$employee : Employee(eduInfo == "bachelor");
+	then
+		System.out.println("exec rule Bachelor ... ");
+		$employee.setBasicSalary(1500);
+end
+
+
+rule "Master"
+	ruleflow-group "basic_salary"
+	when
+		$employee : Employee(eduInfo == "master" )
+	then
+		System.out.println("exec rule Master ... ");
+		$employee.setBasicSalary(2500);
+end
+
+#ResumeRule
+
+rule "Technician"
+	ruleflow-group "duty_salary"
+	when
+		$employee : Employee(resume == "tech")
+	then
+		System.out.println("exec rule Technician ... ");
+		$employee.setDutySalary(2000);
+end
+
+
+rule "Manager"
+	ruleflow-group "duty_salary"
+	when
+		$employee : Employee(awardPunish == "manager")
+	then
+		System.out.println("exec rule Manager ... ");
+		$employee.setDutySalary(4500);
+end
+
+#BonusRule
+
+rule "Excellent"
+	ruleflow-group "bonus_salary"
+	when
+		$employee : Employee(annualExam == "excellent")
+	then
+		System.out.println("exec rule Excellent ... ");
+		$employee.setBonus(1000*1.0);
+end
+
+rule "Good"
+	ruleflow-group "bonus_salary"
+	when
+		$employee : Employee(annualExam == "good")
+	then
+		System.out.println("exec rule Good ... ");
+		$employee.setBonus(1000*0.9);
+end
+
+rule "Common"
+	ruleflow-group "bonus_salary"
+	when
+		$employee : Employee(annualExam == "common")
+	then
+		System.out.println("exec rule Common ... ");
+		$employee.setBonus(1000*0.6);
+end
+
+rule "Failing"
+	ruleflow-group "bonus_salary"
+	when
+		$employee : Employee(annualExam== "failing")
+	then
+		System.out.println("exec rule Failing ... ");
+		$employee.setBonus(1000*0.0);
+end
+
+#AwardPunishRule
+
+rule "Award"
+	ruleflow-group "award_punish"
+	when
+		$employee : Employee(awardPunish == "award")
+	then
+		System.out.println("exec rule Award ... ");
+		$employee.setPercent(1.10);
+end
+
+rule "Punishment"
+	ruleflow-group "award_punish"
+	when
+		$employee : Employee(awardPunish == "punish")
+	then
+		System.out.println("exec rule Punishment ... ");
+		$employee.setPercent(0.90);
+end
+
+rule "None"
+	ruleflow-group "award_punish"
+	when
+		$employee : Employee(awardPunish == "none")
+	then
+		System.out.println("exec rule None ... ");
+		$employee.setPercent(1.00);
+end
+
+
+#TotalRule
+rule "Total"
+	ruleflow-group "sum_salary"
+	when
+		$employee : Employee()
+	then
+		System.out.println("exec rule Total ... ");
+		double total = $employee.getBasicSalary() +  $employee.getDutySalary() + $employee.getBonus();                                  
+		$employee.setTotalSalary(total*$employee.getPercent());
+end
+
+
