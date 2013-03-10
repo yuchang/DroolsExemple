@@ -1,0 +1,21 @@
+//created on: 5 mars 2013
+package com.sample
+ 
+import com.sample.Message;
+
+rule "Hello World"
+    when
+        $message : Message(status == Message.HELLO, $msg : message)
+    then
+        System.out.println($msg);
+        $message.setMessage("Goodbye cruel world");
+        $message.setStatus(Message.GOODBYE);
+        update($message);
+end
+
+rule "GoodBye"
+    when
+        Message(status == Message.GOODBYE, $msg : message)
+    then
+        System.out.println($msg);
+end

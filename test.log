@@ -1,0 +1,118 @@
+<object-stream>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>4</type>
+  <activationId>Essai_14 [1, 1]</activationId>
+  <rule>Essai_14</rule>
+  <declarations>c=
+------------
+Name: Yuchang
+Age: 12
+Gender: null
+City: null
+------------(1)</declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ObjectLogEvent>
+  <type>1</type>
+  <factId>1</factId>
+  <objectToString>
+------------
+Name: Yuchang
+Age: 12
+Gender: null
+City: null
+------------</objectToString>
+</org.drools.audit.event.ObjectLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>4</type>
+  <activationId>Essai_15 [2, 2]</activationId>
+  <rule>Essai_15</rule>
+  <declarations>c=
+------------
+Name: Jonathan
+Age: 27
+Gender: null
+City: null
+------------(2)</declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ObjectLogEvent>
+  <type>1</type>
+  <factId>2</factId>
+  <objectToString>
+------------
+Name: Jonathan
+Age: 27
+Gender: null
+City: null
+------------</objectToString>
+</org.drools.audit.event.ObjectLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>6</type>
+  <activationId>Essai_14 [1, 1]</activationId>
+  <rule>Essai_14</rule>
+  <declarations>c=
+------------
+Name: Yuchang
+Age: 12
+Gender: null
+City: null
+------------(1)</declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ObjectLogEvent>
+  <type>2</type>
+  <factId>1</factId>
+  <objectToString>
+------------
+Name: Yuchang
+Age: 13
+Gender: null
+City: null
+------------</objectToString>
+</org.drools.audit.event.ObjectLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>7</type>
+  <activationId>Essai_14 [1, 1]</activationId>
+  <rule>Essai_14</rule>
+  <declarations>c=
+------------
+Name: Yuchang
+Age: 13
+Gender: null
+City: null
+------------(1)</declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>6</type>
+  <activationId>Essai_15 [2, 2]</activationId>
+  <rule>Essai_15</rule>
+  <declarations>c=
+------------
+Name: Jonathan
+Age: 27
+Gender: null
+City: null
+------------(2)</declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ObjectLogEvent>
+  <type>2</type>
+  <factId>2</factId>
+  <objectToString>
+------------
+Name: Jonathan
+Age: 29
+Gender: null
+City: null
+------------</objectToString>
+</org.drools.audit.event.ObjectLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>7</type>
+  <activationId>Essai_15 [2, 2]</activationId>
+  <rule>Essai_15</rule>
+  <declarations>c=
+------------
+Name: Jonathan
+Age: 29
+Gender: null
+City: null
+------------(2)</declarations>
+</org.drools.audit.event.ActivationLogEvent>
+</object-stream>

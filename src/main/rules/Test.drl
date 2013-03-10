@@ -1,0 +1,383 @@
+//created on: 5 mars 2013
+package com.sample
+
+import java.util.ArrayList;
+import java.util.Date;
+
+import com.sample.Order;
+import com.sample.Customer;
+import com.sample.Message;
+
+import function com.sample.DroolsEssai.afficherMsg;
+
+global String[] orderNames;
+global String[] orderNames2;
+
+
+declare Address
+	city : String
+	addressName : String
+end
+
+declare Person
+	name : String
+	birthday : Date
+	address : Address
+	order : Order
+end
+
+
+query "query fact count"
+	Customer();
+end
+
+query "query test"
+	customer : Customer(age>=25, orders.size>10);
+end
+
+query "query test 2"(int $age, String $gender)
+	customer : Customer(age>=$age, gender==$gender);
+end
+
+
+
+function void afficherMessage(String msg){
+	System.out.println("(Msg) " + msg);
+} 
+
+function void setOrders(Customer customer, int orderSize){
+	ArrayList<Order> ls = new ArrayList<Order>();
+	int i = 0;
+	do {
+		Order order = new Order();
+		ls.add(order);
+		i++;
+	}while(i<orderSize);
+	customer.setOrders(ls); 
+}
+
+
+
+
+dialect "mvel"
+
+/**************************************************************************************/
+
+rule "Test 4.3 - 1"
+	enabled false
+	when
+		eval(true)
+	then
+		Address addr = new Address();
+		addr.setCity("Villeneuve d'ascq");
+		addr.setAddressName("Cité Scientifique");
+		
+		Order order = new Order();
+		order.setName("Commande Individuelle");
+		
+		Person person = new Person();
+		person.setName("Yuchang");
+		person.setBirthday(new Date());
+		person.setAddress(addr);
+		person.setOrder(order);		
+		insert(person);
+end
+
+rule "Test 4.3 - 2"
+	enabled false
+	when 
+		$person : Person()
+	then
+		afficherMsg("Nom: "+$person.getName()+"\nAdresse: "+$person.getAddress().getCity()+" --- "+$person.getAddress().getAddressName()+
+			"\nCommande: "+$person.getOrder().getName());
+end
+
+/**************************************************************************************/
+
+rule "Test 4.2 - 1"
+	enabled false
+	when
+		eval(true)
+	then
+		Address addr = new Address();
+		addr.setCity("Villeneuve d'ascq");
+		addr.setAddressName("Cité Scientifique");
+		insert(addr);	
+end
+
+rule "Test 4.2 - 2"
+	enabled false
+	when
+		$addr : Address()
+	then
+		afficherMessage($addr.getCity() + " --- " + $addr.getAddressName());
+end
+
+/**************************************************************************************/
+
+rule "Test 4.1 - 1"
+	enabled false
+	when 
+		$customer : Customer()
+	then
+		setOrders($customer, 5);
+		afficherMessage("rule 1 customer has order size:"+$customer.getOrders().size());
+end
+
+rule "Test 4.1 - 2"
+	enabled false
+	when
+		$customer : Customer()
+	then
+		setOrders($customer, 10);
+		afficherMessage("rule 2 customer has order size:"+$customer.getOrders().size());
+end	
+
+/**************************************************************************************/
+
+rule "*Test 3.6 - 1"
+	agenda-group "AG01"
+	auto-focus true
+	enabled false
+	when
+		eval(true)
+	then
+		afficherMessage(drools.getRule().getName()+" executed");
+end
+
+rule "Test 3.6 - 2"
+	agenda-group "AG02"
+	auto-focus true
+	enabled false
+	when
+		eval(true)
+	then
+		afficherMessage(drools.getRule().getName()+" executed");	
+end
+
+
+/**************************************************************************************/
+
+rule "Test 3.5 - 1"
+	activation-group "test"
+	salience 10
+	enabled false
+	when
+		eval(true)
+	then
+		afficherMessage(drools.getRule().getName()+" executed");
+end
+
+rule "Test 3.5 - 2"
+	activation-group "test"
+	enabled false
+	when
+		eval(true)
+	then
+		afficherMessage(drools.getRule().getName()+" executed");
+end
+
+/**************************************************************************************/
+
+rule "Test 3.4"
+	duration 1
+	enabled false
+	when 
+		eval(true)
+	then
+		afficherMessage("rule thread id:"+Thread.currentThread().getId());
+end
+
+/**************************************************************************************/
+
+rule "Test 3.3 - 1"
+	salience 1
+	//date-effective "05-03-2013"
+	enabled false
+	when
+		eval(true)
+	then
+		Customer cus = new Customer();
+		cus.setName("Yuchang");
+		cus.setAge(25);
+		afficherMessage("Here we are");
+		insert(cus);
+		//drools.halt();
+		//afficherMessage("dialect:"+drools.getRule().getDialect());
+end
+
+rule "Test 3.3 - 2"
+	salience 2
+	//date-expires "05-03-2013"
+	enabled false
+	when
+		$customer : Customer(name=="Yuchang")
+	then
+		drools.retract($customer);
+		afficherMessage("And now we are here!");
+end
+
+/**************************************************************************************/
+//Singleton ??????
+rule "Test 3.2 - 1"
+	salience 3
+	enabled false
+	when
+		eval(true)
+	then
+		Customer cus = new Customer();
+		cus.setName("Yuchang");
+		cus.setAge(25);
+		afficherMessage("Here we are");
+		insert(cus);
+end
+
+rule "Test 3.2 - 2"
+	salience 1
+	no-loop false
+	enabled false
+	when
+		$customer : Customer(name=="Yuchang", age < 30)
+	then
+		//$customer.setAge($customer.getAge() + 1);
+		//update($customer);
+		
+		Customer customer = new Customer();
+		customer.setName("Yuchang");
+		customer.setAge($customer.getAge() + 1);
+		update(drools.getWorkingMemory().getFactHandleByIdentity($customer), customer);
+		
+		afficherMessage("And now we are here!");
+end
+
+rule "Test 3.2 - 3"
+	salience 2
+	no-loop true #No loop only stops a rule activating itself, it doesn't stop another rule activating an already activated rule.
+	enabled false
+	when 
+		$customer : Customer(age>=20)
+	then
+		afficherMessage("???");
+end
+
+/**************************************************************************************/
+
+rule "Test 3.1 - 1"
+	salience 1
+	enabled false
+	when
+		eval(true)
+	then
+		Customer cus = new Customer();
+		cus.setName("Yuchang");
+		cus.setAge(25);
+		afficherMessage("Here we are");
+		insert(cus);
+end
+
+rule "Test 3.1 - 2"
+	salience 3
+	enabled false
+	when
+		$customer : Customer(name=="Yuchang")
+	then
+		afficherMessage("Customer Name : " + $customer.getName());
+end
+
+rule "Test 3.1 - 3"
+	salience 2
+	enabled false
+	when 
+		$customer : Customer(age>=20)
+	then
+		afficherMessage("Customer Age : " + $customer.getAge());
+end
+
+/**************************************************************************************/
+
+rule "Test 2.7"
+	enabled false
+	when
+		$order : Order(name matches "Commande.*")
+	then
+		afficherMessage($order.getName())
+end
+
+rule "Test 2.6"
+	enabled false
+	when
+		$order : Order(name not memberOf orderNames2)
+	then
+		afficherMsg("Test 2.6 OK");
+end
+
+rule "Test 2.5"
+	enabled false
+	when
+		$order : Order(name memberOf orderNames)
+	then
+		afficherMsg("Test 2.5 OK");
+end
+
+rule "Test 2.4"
+	enabled false
+	when
+		$order : Order()
+		$customer : Customer(age>20, orders not contains $order)
+	then
+		afficherMsg("Test 2.4 OK");
+end
+
+rule "Test 2.3"
+	enabled false
+	when
+		$order : Order()
+		$customer : Customer(age>20, orders contains $order)
+	then
+		afficherMsg("Test 2.3 OK");
+end
+
+
+rule "Test 2.2"
+	enabled false
+	when
+		Customer(age<20 || gender=="Homme" && city=="Lille")
+	then
+		afficherMsg("Test 2.2 OK");
+end
+
+rule "Test 2.1"
+	enabled false
+	when 
+		$customer : Customer(age>20, gender=="Homme")
+		Order(customer==$customer, price>100)
+	then
+		afficherMsg("Test 2.1 OK");
+end
+
+/**************************************************************************************/
+
+rule "Test 1 - Hello World"
+	enabled false
+    when
+        $message : Message(status == Message.HELLO, $msg : message)
+    then
+        //System.out.println($msg);
+        afficherMessage($msg)
+        //$message.setMessage("Goodbye cruel world");
+        //$message.setStatus(Message.GOODBYE);
+        modify($message) {message="Goodbye cruel world", status=Message.GOODBYE} //on peut aussi utiliser Setter
+        update($message)
+end
+
+rule "Test 1 - GoodBye"
+	enabled false
+    when
+        Message(status == Message.GOODBYE, $msg : message)
+    then
+        //System.out.println($msg);
+        //afficherMessage($msg);
+        afficherMsg($msg)
+end
+
+/**************************************************************************************/
