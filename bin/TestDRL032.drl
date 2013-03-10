@@ -1,0 +1,48 @@
+//created on: 10 mars 2013
+package com.sample
+
+import com.sample.Customer;
+
+dialect "mvel"
+
+//Singleton ??????
+rule "Test 3.2 - 1"
+	salience 3
+	enabled true
+	when
+		eval(true)
+	then
+		Customer cus = new Customer();
+		cus.setName("Yuchang");
+		cus.setAge(25);
+		System.out.println("Here we are");
+		insert(cus);
+end
+
+rule "Test 3.2 - 2"
+	salience 1
+	no-loop false
+	enabled true
+	when
+		$customer : Customer(name=="Yuchang", age < 30)
+	then
+		//$customer.setAge($customer.getAge() + 1);
+		//update($customer);
+		
+		Customer customer = new Customer();
+		customer.setName("Yuchang");
+		customer.setAge($customer.getAge() + 1);
+		update(drools.getWorkingMemory().getFactHandleByIdentity($customer), customer);
+		
+		System.out.println("And now we are here!");
+end
+
+rule "Test 3.2 - 3"
+	salience 2
+	no-loop true #No loop only stops a rule activating itself, it doesn't stop another rule activating an already activated rule.
+	enabled true
+	when 
+		$customer : Customer(age>=20)
+	then
+		System.out.println("???");
+end

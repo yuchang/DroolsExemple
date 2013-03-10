@@ -1,0 +1,43 @@
+<object-stream>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>4</type>
+  <activationId>Test 4.3 - 1 [0]</activationId>
+  <rule>Test 4.3 - 1</rule>
+  <declarations></declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>6</type>
+  <activationId>Test 4.3 - 1 [0]</activationId>
+  <rule>Test 4.3 - 1</rule>
+  <declarations></declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>4</type>
+  <activationId>Test 4.3 - 2 [1]</activationId>
+  <rule>Test 4.3 - 2</rule>
+  <declarations>$person=Person( name=Yuchang, birthday=Sun Mar 10 23:07:30 CET 2013, address=Address( city=Villeneuve d&apos;ascq, addressName=Cité Scientifique ), order=com.sample.Order@78dc9766 )(1)</declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ObjectLogEvent>
+  <type>1</type>
+  <factId>1</factId>
+  <objectToString>Person( name=Yuchang, birthday=Sun Mar 10 23:07:30 CET 2013, address=Address( city=Villeneuve d&apos;ascq, addressName=Cité Scientifique ), order=com.sample.Order@78dc9766 )</objectToString>
+</org.drools.audit.event.ObjectLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>7</type>
+  <activationId>Test 4.3 - 1 [0]</activationId>
+  <rule>Test 4.3 - 1</rule>
+  <declarations></declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>6</type>
+  <activationId>Test 4.3 - 2 [1]</activationId>
+  <rule>Test 4.3 - 2</rule>
+  <declarations>$person=Person( name=Yuchang, birthday=Sun Mar 10 23:07:30 CET 2013, address=Address( city=Villeneuve d&apos;ascq, addressName=Cité Scientifique ), order=com.sample.Order@78dc9766 )(1)</declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>7</type>
+  <activationId>Test 4.3 - 2 [1]</activationId>
+  <rule>Test 4.3 - 2</rule>
+  <declarations>$person=Person( name=Yuchang, birthday=Sun Mar 10 23:07:30 CET 2013, address=Address( city=Villeneuve d&apos;ascq, addressName=Cité Scientifique ), order=com.sample.Order@78dc9766 )(1)</declarations>
+</org.drools.audit.event.ActivationLogEvent>
+</object-stream>

@@ -1,0 +1,29 @@
+//created on: 10 mars 2013
+package com.sample
+
+import com.sample.Message;
+
+dialect "mvel"
+
+rule "Test 1 - Hello World"
+	enabled true
+    when
+        $message : Message(status == Message.HELLO, $msg : message)
+    then
+        //System.out.println($msg);
+        System.out.println($msg)
+        //$message.setMessage("Goodbye cruel world");
+        //$message.setStatus(Message.GOODBYE);
+        modify($message) {message="Goodbye cruel world", status=Message.GOODBYE} //on peut aussi utiliser Setter
+        update($message)
+end
+
+rule "Test 1 - GoodBye"
+	enabled true
+    when
+        Message(status == Message.GOODBYE, $msg : message)
+    then
+        //System.out.println($msg);
+        //afficherMessage($msg);
+        System.out.println($msg)
+end

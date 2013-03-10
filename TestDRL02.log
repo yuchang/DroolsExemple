@@ -1,0 +1,162 @@
+<object-stream>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>4</type>
+  <activationId>Test 2.2 [1]</activationId>
+  <rule>Test 2.2</rule>
+  <declarations></declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ObjectLogEvent>
+  <type>1</type>
+  <factId>1</factId>
+  <objectToString>
+------------
+Name: Yuchang
+Age: 25
+Gender: Homme
+City: Lille
+------------</objectToString>
+</org.drools.audit.event.ObjectLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>4</type>
+  <activationId>Test 2.7 [2]</activationId>
+  <rule>Test 2.7</rule>
+  <declarations>$order=com.sample.Order@4e2892b(2)</declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>4</type>
+  <activationId>Test 2.6 [2]</activationId>
+  <rule>Test 2.6</rule>
+  <declarations>$order=com.sample.Order@4e2892b(2)</declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>4</type>
+  <activationId>Test 2.5 [2]</activationId>
+  <rule>Test 2.5</rule>
+  <declarations>$order=com.sample.Order@4e2892b(2)</declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>4</type>
+  <activationId>Test 2.3 [1, 2]</activationId>
+  <rule>Test 2.3</rule>
+  <declarations>$customer=
+------------
+Name: Yuchang
+Age: 25
+Gender: Homme
+City: Lille
+------------(1); $order=com.sample.Order@4e2892b(2)</declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>4</type>
+  <activationId>Test 2.1 [2, 1]</activationId>
+  <rule>Test 2.1</rule>
+  <declarations>$customer=
+------------
+Name: Yuchang
+Age: 25
+Gender: Homme
+City: Lille
+------------(1)</declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ObjectLogEvent>
+  <type>1</type>
+  <factId>2</factId>
+  <objectToString>com.sample.Order@4e2892b</objectToString>
+</org.drools.audit.event.ObjectLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>6</type>
+  <activationId>Test 2.1 [2, 1]</activationId>
+  <rule>Test 2.1</rule>
+  <declarations>$customer=
+------------
+Name: Yuchang
+Age: 25
+Gender: Homme
+City: Lille
+------------(1)</declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>7</type>
+  <activationId>Test 2.1 [2, 1]</activationId>
+  <rule>Test 2.1</rule>
+  <declarations>$customer=
+------------
+Name: Yuchang
+Age: 25
+Gender: Homme
+City: Lille
+------------(1)</declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>6</type>
+  <activationId>Test 2.3 [1, 2]</activationId>
+  <rule>Test 2.3</rule>
+  <declarations>$customer=
+------------
+Name: Yuchang
+Age: 25
+Gender: Homme
+City: Lille
+------------(1); $order=com.sample.Order@4e2892b(2)</declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>7</type>
+  <activationId>Test 2.3 [1, 2]</activationId>
+  <rule>Test 2.3</rule>
+  <declarations>$customer=
+------------
+Name: Yuchang
+Age: 25
+Gender: Homme
+City: Lille
+------------(1); $order=com.sample.Order@4e2892b(2)</declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>6</type>
+  <activationId>Test 2.5 [2]</activationId>
+  <rule>Test 2.5</rule>
+  <declarations>$order=com.sample.Order@4e2892b(2)</declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>7</type>
+  <activationId>Test 2.5 [2]</activationId>
+  <rule>Test 2.5</rule>
+  <declarations>$order=com.sample.Order@4e2892b(2)</declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>6</type>
+  <activationId>Test 2.6 [2]</activationId>
+  <rule>Test 2.6</rule>
+  <declarations>$order=com.sample.Order@4e2892b(2)</declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>7</type>
+  <activationId>Test 2.6 [2]</activationId>
+  <rule>Test 2.6</rule>
+  <declarations>$order=com.sample.Order@4e2892b(2)</declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>6</type>
+  <activationId>Test 2.7 [2]</activationId>
+  <rule>Test 2.7</rule>
+  <declarations>$order=com.sample.Order@4e2892b(2)</declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>7</type>
+  <activationId>Test 2.7 [2]</activationId>
+  <rule>Test 2.7</rule>
+  <declarations>$order=com.sample.Order@4e2892b(2)</declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>6</type>
+  <activationId>Test 2.2 [1]</activationId>
+  <rule>Test 2.2</rule>
+  <declarations></declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>7</type>
+  <activationId>Test 2.2 [1]</activationId>
+  <rule>Test 2.2</rule>
+  <declarations></declarations>
+</org.drools.audit.event.ActivationLogEvent>
+</object-stream>

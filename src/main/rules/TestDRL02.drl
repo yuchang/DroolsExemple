@@ -1,0 +1,77 @@
+//created on: 10 mars 2013
+package com.sample
+
+import com.sample.Order;
+import com.sample.Customer;
+
+import function com.sample.TestDRL02.afficherMsg;
+
+global String[] orderNames;
+global String[] orderNames2;
+
+function void afficherMessage(String msg){
+	System.out.println("(Msg) " + msg);
+} 
+
+dialect "mvel"
+
+rule "Test 2.7"
+	enabled true
+	when
+		$order : Order(name matches "Commande.*")
+	then
+		afficherMessage($order.getName())
+		afficherMsg("Test 2.7 OK");
+end
+
+rule "Test 2.6"
+	enabled true
+	when
+		$order : Order(name not memberOf orderNames2)
+	then
+		afficherMsg("Test 2.6 OK");
+end
+
+rule "Test 2.5"
+	enabled true
+	when
+		$order : Order(name memberOf orderNames)
+	then
+		afficherMsg("Test 2.5 OK");
+end
+
+rule "Test 2.4"
+	enabled true
+	when
+		$order : Order()
+		$customer : Customer(age>20, orders not contains $order)
+	then
+		afficherMsg("Test 2.4 OK");
+end
+
+rule "Test 2.3"
+	enabled true
+	when
+		$order : Order()
+		$customer : Customer(age>20, orders contains $order)
+	then
+		afficherMsg("Test 2.3 OK");
+end
+
+
+rule "Test 2.2"
+	enabled true
+	when
+		Customer(age<20 || gender=="Homme" && city=="Lille")
+	then
+		afficherMsg("Test 2.2 OK");
+end
+
+rule "Test 2.1"
+	enabled true
+	when 
+		$customer : Customer(age>20, gender=="Homme")
+		Order(customer==$customer, price>100)
+	then
+		afficherMsg("Test 2.1 OK");
+end

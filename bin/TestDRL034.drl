@@ -1,0 +1,11 @@
+//created on: 10 mars 2013
+package com.sample
+
+rule "Test 3.4"
+	duration 1
+	enabled true
+	when 
+		eval(true)
+	then
+		System.out.println("rule thread id:"+Thread.currentThread().getId());
+end

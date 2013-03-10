@@ -1,0 +1,32 @@
+<object-stream>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>4</type>
+  <activationId>*Test 3.6 - 1 [0]</activationId>
+  <rule>*Test 3.6 - 1</rule>
+  <declarations></declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>4</type>
+  <activationId>Test 3.6 - 2 [0]</activationId>
+  <rule>Test 3.6 - 2</rule>
+  <declarations></declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>6</type>
+  <activationId>Test 3.6 - 2 [0]</activationId>
+  <rule>Test 3.6 - 2</rule>
+  <declarations></declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>7</type>
+  <activationId>Test 3.6 - 2 [0]</activationId>
+  <rule>Test 3.6 - 2</rule>
+  <declarations></declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>5</type>
+  <activationId>*Test 3.6 - 1 [0]</activationId>
+  <rule>*Test 3.6 - 1</rule>
+  <declarations></declarations>
+</org.drools.audit.event.ActivationLogEvent>
+</object-stream>

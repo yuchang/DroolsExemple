@@ -1,0 +1,37 @@
+//created on: 10 mars 2013
+package com.sample
+
+import com.sample.Customer;
+
+query "query fact count"
+	Customer();
+end
+
+query "query test"
+	customer : Customer(age>=25, orders.size>10);
+end
+
+query "query test 2"(int $age, String $gender)
+	customer : Customer(age>=$age, gender==$gender);
+end
+
+
+dialect "mvel"
+
+rule "Your First Rule"
+
+    when
+        //conditions
+    then
+        //actions
+
+end
+
+rule "Your Second Rule"
+    //include attributes such as "salience" here...
+    when
+        //conditions
+    then
+        //actions
+
+end

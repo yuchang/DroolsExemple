@@ -1,0 +1,48 @@
+//created on: 10 mars 2013
+package com.sample
+
+import java.util.Date;
+import com.sample.Order;
+
+declare Address
+	city : String
+	addressName : String
+end
+
+declare Person
+	name : String
+	birthday : Date
+	address : Address
+	order : Order
+end
+
+dialect "mvel"
+
+rule "Test 4.3 - 1"
+	enabled true
+	when
+		eval(true)
+	then
+		Address addr = new Address();
+		addr.setCity("Villeneuve d'ascq");
+		addr.setAddressName("Cité Scientifique");
+		
+		Order order = new Order();
+		order.setName("Commande Individuelle");
+		
+		Person person = new Person();
+		person.setName("Yuchang");
+		person.setBirthday(new Date());
+		person.setAddress(addr);
+		person.setOrder(order);		
+		insert(person);
+end
+
+rule "Test 4.3 - 2"
+	enabled true
+	when 
+		$person : Person()
+	then
+		System.out.println("Nom: "+$person.getName()+"\nAdresse: "+$person.getAddress().getCity()+" --- "+$person.getAddress().getAddressName()+
+			"\nCommande: "+$person.getOrder().getName());
+end

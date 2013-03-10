@@ -1,0 +1,26 @@
+//created on: 10 mars 2013
+package com.sample
+
+declare Address
+	city : String
+	addressName : String
+end
+
+rule "Test 4.2 - 1"
+	enabled true
+	when
+		eval(true)
+	then
+		Address addr = new Address();
+		addr.setCity("Villeneuve d'ascq");
+		addr.setAddressName("Cité Scientifique");
+		insert(addr);	
+end
+
+rule "Test 4.2 - 2"
+	enabled true
+	when
+		$addr : Address()
+	then
+		System.out.println($addr.getCity() + " --- " + $addr.getAddressName());
+end

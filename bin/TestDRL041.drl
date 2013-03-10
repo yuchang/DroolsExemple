@@ -1,0 +1,37 @@
+//created on: 10 mars 2013
+package com.sample
+
+import java.util.ArrayList;
+import com.sample.Customer;
+import com.sample.Order;
+
+dialect "mvel"
+
+function void setOrders(Customer customer, int orderSize){
+	ArrayList<Order> ls = new ArrayList<Order>();
+	int i = 0;
+	do {
+		Order order = new Order();
+		ls.add(order);
+		i++;
+	}while(i<orderSize);
+	customer.setOrders(ls); 
+}
+
+rule "Test 4.1 - 1"
+	enabled true
+	when 
+		$customer : Customer()
+	then
+		setOrders($customer, 5);
+		System.out.println("rule 1 customer has order size:"+$customer.getOrders().size());
+end
+
+rule "Test 4.1 - 2"
+	enabled true
+	when
+		$customer : Customer()
+	then
+		setOrders($customer, 10);
+		System.out.println("rule 2 customer has order size:"+$customer.getOrders().size());
+end	

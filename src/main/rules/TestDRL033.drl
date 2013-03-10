@@ -1,0 +1,33 @@
+//created on: 10 mars 2013
+package com.sample
+
+import com.sample.Customer;
+
+dialect "mvel"
+
+rule "Test 3.3 - 1"
+	salience 1
+	date-effective "05-03-2013"
+	enabled true
+	when
+		eval(true)
+	then
+		Customer cus = new Customer();
+		cus.setName("Yuchang");
+		cus.setAge(25);
+		System.out.println("Here we are");
+		insert(cus);
+		//drools.halt();
+		System.out.println("dialect:"+drools.getRule().getDialect());
+end
+
+rule "Test 3.3 - 2"
+	salience 2
+	date-expires "05-03-2013"
+	enabled true
+	when
+		$customer : Customer(name=="Yuchang")
+	then
+		drools.retract($customer);
+		System.out.println("And now we are here!");
+end

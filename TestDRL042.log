@@ -1,0 +1,43 @@
+<object-stream>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>4</type>
+  <activationId>Test 4.2 - 1 [0]</activationId>
+  <rule>Test 4.2 - 1</rule>
+  <declarations></declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>6</type>
+  <activationId>Test 4.2 - 1 [0]</activationId>
+  <rule>Test 4.2 - 1</rule>
+  <declarations></declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>4</type>
+  <activationId>Test 4.2 - 2 [1]</activationId>
+  <rule>Test 4.2 - 2</rule>
+  <declarations>$addr=Address( city=Villeneuve d&apos;ascq, addressName=Cité Scientifique )(1)</declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ObjectLogEvent>
+  <type>1</type>
+  <factId>1</factId>
+  <objectToString>Address( city=Villeneuve d&apos;ascq, addressName=Cité Scientifique )</objectToString>
+</org.drools.audit.event.ObjectLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>7</type>
+  <activationId>Test 4.2 - 1 [0]</activationId>
+  <rule>Test 4.2 - 1</rule>
+  <declarations></declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>6</type>
+  <activationId>Test 4.2 - 2 [1]</activationId>
+  <rule>Test 4.2 - 2</rule>
+  <declarations>$addr=Address( city=Villeneuve d&apos;ascq, addressName=Cité Scientifique )(1)</declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>7</type>
+  <activationId>Test 4.2 - 2 [1]</activationId>
+  <rule>Test 4.2 - 2</rule>
+  <declarations>$addr=Address( city=Villeneuve d&apos;ascq, addressName=Cité Scientifique )(1)</declarations>
+</org.drools.audit.event.ActivationLogEvent>
+</object-stream>

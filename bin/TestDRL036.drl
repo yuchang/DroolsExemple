@@ -1,0 +1,23 @@
+//created on: 10 mars 2013
+package com.sample
+
+rule "*Test 3.6 - 1"
+	agenda-group "AG01"
+	auto-focus true
+	enabled true
+	when
+		eval(true)
+	then
+		System.out.println(drools.getRule().getName()+" executed");
+end
+
+rule "Test 3.6 - 2"
+	agenda-group "AG02"
+	auto-focus true
+	enabled true
+	when
+		eval(true)
+	then
+		System.out.println(drools.getRule().getName()+" executed");	
+end
+

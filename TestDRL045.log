@@ -1,0 +1,25 @@
+<object-stream>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>4</type>
+  <activationId>Test 4.3 - 2 [1]</activationId>
+  <rule>Test 4.3 - 2</rule>
+  <declarations>$person=Person( name=Yuchang, birthday=null, address=Address( city=Villeneuve D&apos;ascq, addressName=Cité Scientifique ), order=com.sample.Order@55f157b )(1)</declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ObjectLogEvent>
+  <type>1</type>
+  <factId>1</factId>
+  <objectToString>Person( name=Yuchang, birthday=null, address=Address( city=Villeneuve D&apos;ascq, addressName=Cité Scientifique ), order=com.sample.Order@55f157b )</objectToString>
+</org.drools.audit.event.ObjectLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>6</type>
+  <activationId>Test 4.3 - 2 [1]</activationId>
+  <rule>Test 4.3 - 2</rule>
+  <declarations>$person=Person( name=Yuchang, birthday=null, address=Address( city=Villeneuve D&apos;ascq, addressName=Cité Scientifique ), order=com.sample.Order@55f157b )(1)</declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>7</type>
+  <activationId>Test 4.3 - 2 [1]</activationId>
+  <rule>Test 4.3 - 2</rule>
+  <declarations>$person=Person( name=Yuchang, birthday=null, address=Address( city=Villeneuve D&apos;ascq, addressName=Cité Scientifique ), order=com.sample.Order@55f157b )(1)</declarations>
+</org.drools.audit.event.ActivationLogEvent>
+</object-stream>

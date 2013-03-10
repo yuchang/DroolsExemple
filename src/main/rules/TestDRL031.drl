@@ -1,0 +1,37 @@
+//created on: 10 mars 2013
+package com.sample
+
+import com.sample.Customer;
+
+dialect "mvel"
+
+rule "Test 3.1 - 1"
+	salience 1
+	enabled true
+	when
+		eval(true)
+	then
+		Customer cus = new Customer();
+		cus.setName("Yuchang");
+		cus.setAge(25);
+		System.out.println("Here we are");
+		insert(cus);
+end
+
+rule "Test 3.1 - 2"
+	salience 3
+	enabled true
+	when
+		$customer : Customer(name=="Yuchang")
+	then
+		System.out.println("Customer Name : " + $customer.getName());
+end
+
+rule "Test 3.1 - 3"
+	salience 2
+	enabled true
+	when 
+		$customer : Customer(age>=20)
+	then
+		System.out.println("Customer Age : " + $customer.getAge());
+end

@@ -1,0 +1,21 @@
+//created on: 10 mars 2013
+package com.sample
+
+rule "Test 3.5 - 1"
+	activation-group "test"
+	salience -10
+	enabled true
+	when
+		eval(true)
+	then
+		System.out.println(drools.getRule().getName()+" executed");
+end
+
+rule "Test 3.5 - 2"
+	activation-group "test"
+	enabled true
+	when
+		eval(true)
+	then
+		System.out.println(drools.getRule().getName()+" executed");
+end
